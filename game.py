@@ -23,6 +23,9 @@ class KBPoller:
         listener = keyboard.Listener(on_press=self.on_press, on_release=self.on_release)
         listener.start()
 
+
+kb = KBPoller()
+
 running = True
 
 player_x = 10
@@ -30,6 +33,8 @@ player_y = 10
 
 npc_x = 50
 npc_y = 50
+npc_x_move = 1 
+npc_y_move = 2
 
 x_min = 0
 x_max = 100
@@ -55,7 +60,12 @@ def render_state():
     print("player is at:", player_x, player_y)
     print("npc is at:", npc_x, npc_y)
 def update_state(inp):
-    global player_x, player_y, running
+    global player_x, player_y, running, npc_x, npc_y, npc_y_move, npc_x_move
+    
+
+    npc_x += npc_x_move
+    npc_y_move += npc_y_move
+
     if inp == "a":
         player_x -= 1
     elif inp == "d":
@@ -76,7 +86,15 @@ def update_state(inp):
     if player_y > y_max:
         player_y = y_max
 
-kb = KBPoller()
+    if npc_x <= x_min:
+        npc_x_move = npc_x_move * -1 
+    if npc_x >= x_max:
+        npc_x_move = npc_x_move * -1 
+    if npc_y <= y_min:
+        npc_y_move = npc_y_move * -1
+    if npc_y >= y_max:
+        npc_y_move = npc_y_move * -1
+
 
 while running:
 
