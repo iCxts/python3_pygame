@@ -28,6 +28,9 @@ running = True
 player_x = 10
 player_y = 10
 
+npc_x = 50
+npc_y = 50
+
 x_min = 0
 x_max = 100
 y_min = 0
@@ -50,7 +53,7 @@ def scan_keys(kb):
 
 def render_state():
     print("player is at:", player_x, player_y)
-
+    print("npc is at:", npc_x, npc_y)
 def update_state(inp):
     global player_x, player_y, running
     if inp == "a":
