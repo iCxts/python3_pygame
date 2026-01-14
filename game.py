@@ -20,7 +20,7 @@ class KBPoller:
     def __init__(self):
         self.pressed = set()
 
-        listener = keyboard.Listener(on_press=self.on_press, on_release=self.on_release)
+        listener = keyboard.Listener(on_press=self.on_press, on_release=self.on_release,suppress=True)
         listener.start()
 
 
