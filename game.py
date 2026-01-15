@@ -1,4 +1,5 @@
 import time
+import pygame
 from pynput import keyboard
 # pip install pynput
 
