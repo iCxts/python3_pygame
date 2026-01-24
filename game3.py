@@ -73,7 +73,7 @@ class GameEngine:
 
         self.player.move(keys[pygame.K_a], keys[pygame.K_d], keys[pygame.K_w], keys[pygame.K_s], self.game_field)
 
-        if ((self.player.x >= self.npc.x - 20 and self.player.x <= self.npc.x + 20)  
+        if ((self.player.x >= self.npc.x - 20 and self.player.x <= self.npc.x + 20)
             and (self.player.y >= self.npc.y - 20 and self.player.y <= self.npc.y + 20)):
             text_surface = font.render('YOU FUCKING DIED', True, (255, 255, 255))
             self.graph_engine.render_text(640, 360, text_surface)
